@@ -7,6 +7,7 @@ class Tournament < ActiveRecord::Base
   validates :date_to, presence: true
   validates :venue, presence: true
   validate :validate_date_from_before_date_to
+  default_scope order: 'date_from'
 
   def validate_date_from_before_date_to
     if date_from && date_to

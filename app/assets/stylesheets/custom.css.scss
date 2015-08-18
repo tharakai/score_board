@@ -126,4 +126,15 @@ input {
   @extend .control-group;
   @extend .error;
 }
+
+/* tournaments index */
+
+.tournaments {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+  }
+}
   

@@ -1,0 +1,15 @@
+<% provide(:title, 'All Tournaments') %>
+<div class="center hero-unit">
+	<center><h1>Tournaments</h1></center>
+
+	<ul class="tournaments">
+	  <% @tournaments.each do |tourney| %>
+	    <li>
+	    	<h4><%= link_to tourney.name, tourney %></h4>
+	    </li>
+	  <% end %>
+	  <br>
+	  <%= link_to "Create Tournament", new_tournament_path, class: "btn btn-default btn-success" %>
+	</ul>
+</div>
+

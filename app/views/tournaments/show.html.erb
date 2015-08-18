@@ -1,12 +1,10 @@
 <% provide(:title, @tournament.name) %>
-<div class="row">
-  <aside class="span6">
-  		<h1> <%= @tournament.name %> </h1>
-  		<%= @tournament.description %> <br>
-  		Venue : <%= @tournament.venue %> <br>
-  		From : <%= @tournament.date_from %> <br>
-  		To : <%= @tournament.date_to %> <br>
-      <%#= link_to "Edit", edit_team_path(@team) %> | 
-      <%#= link_to "Remove", @team, method: :delete, data: { confirm: "You sure?" } %>
-  </aside>
+<div class="center hero-unit">
+  	<h2> <%= @tournament.name %> </h2>
+  	<%= @tournament.description %> <br>
+  	<b>Venue :</b> <%= @tournament.venue %> <br>
+  	<b>From :</b> <%= @tournament.date_from %> <br>
+    <b>To :</b> <%= @tournament.date_to %> <br>
+    <%= link_to "Edit", edit_tournament_path(@tournament) %> | 
+    <%= link_to "Remove", @tournament, method: :delete, data: { confirm: "You sure?" } %>
  </div>
