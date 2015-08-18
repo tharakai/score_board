@@ -1,7 +1,6 @@
 ScoreBoard::Application.routes.draw do
-  get "static_pages/home"
+  resources :tournaments
 
-  get "static_pages/help"
 
   root to: 'static_pages#home'
   match '/about',   to: 'static_pages#about'

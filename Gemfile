@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.16'
 gem 'rspec-rails', '2.11.0'
 gem 'bootstrap-sass', '2.1'
+gem 'bootstrap-datepicker-rails'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
