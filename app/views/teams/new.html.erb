@@ -1,0 +1,36 @@
+<% provide(:title, 'Sign up Team') %>
+<h1><center>Register Team</center></h1>
+
+<div class="row">
+  <div class="span6 offset3">
+      <%= form_for(@team, :url => tournament_teams_path(@tournament)) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.label :captain_name %>
+      <%= f.text_field :captain_name %>
+
+      <%= f.label :spirit_captain_name %>
+      <%= f.text_field :spirit_captain_name %>
+
+      <%= f.label :city %>
+      <%= f.text_field :city %>
+
+      <%= f.label :email_1 %>
+      <%= f.text_field :email_1 %>
+
+      <%= f.label :contact_1 %>
+      <%= f.text_field :contact_1 %>
+
+      <%= f.label :email_2 %>
+      <%= f.text_field :email_2 %>
+
+      <%= f.label :contact_2 %>
+      <%= f.text_field :contact_2 %>
+
+      <%= f.submit "Create Team", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

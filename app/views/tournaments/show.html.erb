@@ -8,3 +8,16 @@
     <%= link_to "Edit", edit_tournament_path(@tournament) %> | 
     <%= link_to "Remove", @tournament, method: :delete, data: { confirm: "You sure?" } %>
  </div>
+ <div class="center hero-unit">
+	<center><h2>Teams</h2></center>
+
+	<ul class="teams">
+	  <% @teams.each do |team| %>
+	    <li>
+	    	<h4><%= link_to team.name, team_path(team) %></h4>
+	    </li>
+	  <% end %>
+	  <br>
+	  <%= link_to "Register Team", new_tournament_team_path(@tournament.id), class: "btn btn-default btn-success" %>
+	</ul>
+ </div>

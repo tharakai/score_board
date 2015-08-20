@@ -1,5 +1,6 @@
 class Tournament < ActiveRecord::Base
   attr_accessible :date_from, :date_to, :description, :name, :venue
+  has_many :teams, dependent: :destroy
 
   validates :name, presence: true, uniqueness: true
   validates :description, length: {maximum: 120}
