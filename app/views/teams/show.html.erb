@@ -1,4 +1,6 @@
 <% provide(:title, @team.name) %>
+<%= render 'shared/menu', object: @team %>
+
 <div class="center hero-unit">
     <section>
   		<h2> <%= @team.name %> </h2>
@@ -6,7 +8,7 @@
   		<b>Spirit Captain :</b> <%= @team.spirit_captain_name %> <br>
   		<b>City :</b> <%= @team.city %> <br>
   	    <b>Contact :</b> <%= @team.contact_1 %> | <%= @team.email_1 %><br>
-      <%= link_to "Edit", edit_team_path(@team) %> | 
-      <%= link_to "Remove", @team, method: :delete, data: { confirm: "You sure?" } %>
+      	<%= link_to "Edit", edit_team_path(@team) %> | 
+      	<%= link_to "Remove", @team, method: :delete, data: { confirm: "You sure?" } %>
     </section>
 </div>

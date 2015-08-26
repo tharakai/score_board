@@ -1,0 +1,63 @@
+<% provide(:title, 'Update Game Scores') %>
+<%= render 'shared/menu', object: @game %>
+
+<h1><center>Update Scores</center></h1>
+
+<div class="row">
+  <div class="span6 offset3">
+      <%= form_for(@game) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <table>
+        <tr>
+          <td class="pull-right">
+            <%= f.label :game_name %>
+          </td>
+          <td>
+            <%= f.text_field :name %>
+          </td>
+        </tr>
+      </table>
+      <table>
+        <tr>
+          <%= f.fields_for :scores do |s| %>
+          <td>
+
+            <%= s.collection_select(:team_id, @tournament.teams, :id, :name ) %>
+
+            <%= s.label :score %>
+            <%= s.text_field :score %>
+
+            <%= s.label :mvp_male %>
+            <%= s.text_field :mvp_male %>
+
+            <%= s.label :mvp_female %>
+            <%= s.text_field :mvp_female %>
+
+            <%= s.label :msp %>
+            <%= s.text_field :msp %>
+
+            <%= s.label :rules_knowledge_and_use %>
+            <%= s.text_field :rules %>
+
+            <%= s.label :fouls_and_body_contact %>
+            <%= s.text_field :fouls %>
+
+            <%= s.label :positive_attitude_and_self_control %>
+            <%= s.text_field :positivity %>
+
+            <%= s.label :fair_mindeness %>
+            <%= s.text_field :fairness %>
+
+            <%= s.label :communication %>
+            <%= s.text_field :communication %>
+
+          </td>
+          <% end %>
+        </tr>
+      </table>
+      <%= f.submit "Submit", class: "btn btn-large btn-primary pull-right" %>
+    <% end %>
+
+  </div>
+</div>

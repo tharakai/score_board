@@ -1,0 +1,54 @@
+<% provide(:title, 'Submit Game Scores') %>
+<%= render 'shared/menu', object: @game %>
+
+<h1><center>Submit Scores</center></h1>
+
+<div class="row">
+  <div class="span6 offset3">
+      <%= form_for(@game, :url => tournament_games_path(@tournament)) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      
+      <table>
+        <tr>
+          <td class="pull-right">
+            <%= f.label :game_name %>
+          </td>
+          <td>
+            <%= f.text_field :name %>
+          </td>
+        </tr>
+      </table>
+      <table>
+        <tr>
+          <%= f.fields_for :scores do |s| %>
+          <td>
+            <%= s.collection_select(:team_id, @tournament.teams, :id, :name ) %>
+            <%= s.label :score %>
+            <%= s.text_field :score %>
+            <%= s.label :mvp_male %>
+            <%= s.text_field :mvp_male %>
+            <%= s.label :mvp_female %>
+            <%= s.text_field :mvp_female %>
+            <%= s.label :msp %>
+            <%= s.text_field :msp %>
+            <%= s.fields_for :spirit_score do |o| %>  
+              <%= o.label :rules_knowledge_and_use %>
+              <%= o.text_field :rules %>
+              <%= o.label :fouls_and_body_contact %>
+              <%= o.text_field :fouls %>
+              <%= o.label :positive_attitude_and_self_control %>
+              <%= o.text_field :positivity %>
+              <%= o.label :fair_mindeness %>
+              <%= o.text_field :fairness %>
+              <%= o.label :communication %>
+              <%= o.text_field :communication %>
+            <% end %>
+          </td>
+          <% end %>
+        </tr>
+      </table>
+      <%= f.submit "Submit", class: "btn btn-large btn-primary pull-right" %>
+    <% end %>
+  </div>
+</div>
+

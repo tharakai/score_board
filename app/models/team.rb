@@ -1,6 +1,8 @@
 class Team < ActiveRecord::Base
   attr_accessible :captain_name, :city, :contact_1, :contact_2, :email_1, :email_2, :name, :spirit_captain_name, :tournament_id
   belongs_to :tournament
+  has_many :scores, dependent: :destroy
+  has_many :games, :through => :scores, dependent: :destroy
 
   validates :name, presence: true
   validates_uniqueness_of :name, :scope => :tournament_id

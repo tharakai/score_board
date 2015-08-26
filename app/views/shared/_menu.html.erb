@@ -1,0 +1,15 @@
+<header class="navbar navbar-inverse navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container">
+			<div>
+				<nav>
+					<%= link_to "Score Board", root_path, id: "logo" %>
+					    <ul class="nav pull-left">
+              				<li><%= link_to "Tournaments", tournaments_path %></li>
+              				<li><%= link_to object.tournament.name, object.tournament %></li>
+            			</ul>
+			    </nav>
+			</div>
+		</div>
+	</div>
+</header>

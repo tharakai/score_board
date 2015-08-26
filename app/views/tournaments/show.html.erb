@@ -10,7 +10,6 @@
  </div>
  <div class="center hero-unit">
 	<center><h2>Teams</h2></center>
-
 	<ul class="teams">
 	  <% @teams.each do |team| %>
 	    <li>
@@ -19,5 +18,19 @@
 	  <% end %>
 	  <br>
 	  <%= link_to "Register Team", new_tournament_team_path(@tournament.id), class: "btn btn-default btn-success" %>
+	</ul>
+ </div>
+  <div class="center hero-unit">
+	<center><h2>Game Scores</h2></center>
+    <ul class="teams">
+	  <% @games.each do |game| %>
+	  	<% if game.teams.present? %>
+		    <li>
+		    	<h4> <%= link_to( game.name, game_path(game)) %> </h4>
+		    </li>
+		<% end %>
+	  <% end %>
+	  <br>
+	  <%= link_to "Enter Game scores", new_tournament_game_path(@tournament.id), class: "btn btn-default btn-success" %>
 	</ul>
  </div>

@@ -2,7 +2,9 @@ ScoreBoard::Application.routes.draw do
   
 
   resources :tournaments do
+    resources :games, shallow: true
     resources :teams, shallow: true
+    
   end
 
   root to: 'static_pages#home'

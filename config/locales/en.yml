@@ -3,3 +3,17 @@
 
 en:
   hello: "Hello world"
+  layouts:
+    header:
+      	tournaments: "Tournaments"
+  shared:
+  	menu:
+  		tournaments: "Tournaments"
+  games:
+  	score:
+  		spirit_score:
+  			rules: Rules knowledge and use
+		    fouls: Fouls and body contact
+		    positivity: Fair mindeness
+		    fairness: Positive attitude and self control
+		    communication: Communication

@@ -1,0 +1,50 @@
+<% provide(:title, @game.name) %>
+<%= render 'shared/menu', object: @game %>
+
+<div class="center hero-unit">
+    <section>
+	  <h2> <%= @game.name %> </h2>
+	  <center>
+  	  <table>
+      	<tr>
+      		<td>
+      			<b>Game:</b> 
+      		</td>
+      		<td class = "pull-right">
+      			<%= @game.teams.first.name %>
+      		</td>
+      		<td>
+      			: <%= @game.teams.second.name %>
+      		</td>
+      	</tr>
+      	<tr>
+      		<td>
+      			<b>Score:</b>
+      		</td>
+      		<td class = "pull-right">
+      			<%= @game.scores.by_team(@game.teams.first.id).first.score %> 
+      		</td>
+      		<td>
+      			: <%= @game.scores.by_team(@game.teams.second.id).first.score %> 
+      		</td>
+      	</tr>	
+            <% Score::SPIRIT_CATEGORIES.each do |cat| %>
+            <tr>
+                  <td>
+                        <b><%= cat %></b>
+                  </td>
+                  <td class = "pull-right">
+                        <%= @game.scores.by_team(@game.teams.first.id).first.spirit_score[cat] %>
+                  </td>
+                  <td>
+                        : <%= @game.scores.by_team(@game.teams.second.id).first.spirit_score[cat] %> 
+                  </td>
+            </tr>
+            <% end %>
+      </table>
+      </center>
+      <br>
+      <%= link_to "Edit", edit_game_path(@game) %> |
+      <%= link_to "Remove", @game, method: :delete, data: { confirm: "You sure?" } %>
+	</section>
+</div>
